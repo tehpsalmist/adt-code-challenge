@@ -1,0 +1,47 @@
+{
+  "name": "adt-code-challenge",
+  "version": "0.0.1",
+  "main": "index.html",
+  "scripts": {
+    "start": "MODE=development parcel serve src/index.html",
+    "build": "MODE=production parcel build src/index.html --no-scope-hoist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tehpsalmist/adt-code-challenge.git"
+  },
+  "keywords": [
+    "parcel",
+    "react",
+    "tailwindcss",
+    "template"
+  ],
+  "author": "Ben Steward <bstewardcodes@gmail.com> (https://tehpsalmist.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tehpsalmist/adt-code-challenge/issues"
+  },
+  "homepage": "https://github.com/tehpsalmist/adt-code-challenge#readme",
+  "devDependencies": {
+    "@parcel/transformer-postcss": "^2.0.0-nightly.488",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/react-router-dom": "latest",
+    "parcel": "next",
+    "tailwindcss": "latest"
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "^5.2.0"
+  },
+  "app": "public/index.html",
+  "targets": {
+    "main": false,
+    "app": {
+      "engines": {
+        "browsers": "Chrome 70"
+      }
+    }
+  }
+}
