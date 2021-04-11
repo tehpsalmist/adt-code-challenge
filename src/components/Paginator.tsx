@@ -8,6 +8,7 @@ export const Paginator = ({ className = '', style = {}, page, setPage, total }) 
     <button className={buttonClass} onClick={e => setPage(1)}>{'|<'}</button>
     <button className={buttonClass} onClick={e => page > 1 && setPage(p => p - 1)}>{'<'}</button>
     {getRangeListFromTotalNumber(total).map(pageNumber => <button
+      key={pageNumber}
       className={`${buttonClass} ${pageNumber === page ? selectedClass : ''}`}
       onClick={e => setPage(pageNumber)}
     >

@@ -30,7 +30,7 @@ export const RestaurantTable = ({ className = '', style = {}, restaurants = [] }
               <a href={`tel:${restaurant.telephone}`}>{restaurant.telephone}</a>
             </td>
             <td className='p-2'>
-              {restaurant.genre.split(',').map(genre => <Pill value={genre} />)}
+              {restaurant.genre.split(',').map(genre => <Pill key={genre} value={genre} />)}
             </td>
           </tr>
         })}
