@@ -7,3 +7,5 @@ git clone $url && cd adt-code-challenge
 npm i
 npm start
 ```
+
+visit http://localhost:1234
