@@ -1,7 +1,7 @@
 import React from 'react'
 
-const buttonClass = `px-2 bg-gray-100 hover:bg-gray-200`
-const selectedClass = `bg-gray-200`
+const buttonClass = `px-2 bg-gray-100 hover:bg-secondary-100`
+const selectedClass = `bg-secondary-200`
 
 export const Paginator = ({ className = '', style = {}, page, setPage, total }) => {
   return <div className={`space-x-1 ${className}`} style={style}>
