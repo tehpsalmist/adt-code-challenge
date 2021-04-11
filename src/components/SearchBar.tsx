@@ -29,6 +29,12 @@ export const SearchBar = ({ className = '', style = {}, currentSearch, onEnter }
       }}
       onEnter={sendSearchTerm}
     />
-    <button type='button' className='min-w-12 flex-center border rounded shadow hover:bg-gray-100' onClick={() => sendSearchTerm()}>🔍</button>
+    <button
+      type='button'
+      className={`min-w-12 flex-center border rounded shadow hover:bg-gray-100 ${search === currentSearch ? '' : 'bg-green-300 border-green-500'}`}
+      onClick={() => sendSearchTerm()}
+    >
+      🔍
+    </button>
   </div>
 }
