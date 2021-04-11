@@ -7,7 +7,6 @@ import { Paginator } from './Paginator'
 import { RestaurantTable } from './RestaurantTable'
 import { SearchBar } from './SearchBar'
 import { StatePicker } from './StatePicker'
-import { TextInput } from './TextInput'
 
 const searchColumns = ['name', 'city', 'genre']
 

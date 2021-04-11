@@ -11,6 +11,7 @@ interface SearchBarProps {
 export const SearchBar = ({ className = '', style = {}, currentSearch, onEnter }) => {
   const [search, setSearch] = useState('')
 
+  // not my proudest api, but it works.
   const sendSearchTerm = (auto?: string) => {
     onEnter(auto ?? search)
   }

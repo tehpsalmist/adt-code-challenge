@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+// pain in the butt to reinvent this wheel, but here it is.
 export const useFetch = (url: RequestInfo, options: RequestInit) => {
   const [{ data, error }, setResult] = useState({ data: null, error: null })
   const [loading, setLoading] = useState(false)

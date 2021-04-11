@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Ref } from 'react'
+import React, { Ref } from 'react'
 
 interface TextInputProps {
   innerRef?: () => Ref<HTMLInputElement>,
@@ -16,6 +16,7 @@ interface TextInputProps {
   id?: string
 }
 
+// This is a component I developed elsewhere, so if some of these props seem superfluous, that's why.
 export const TextInput = ({ innerRef, type = 'text', placeholder, pattern, label, value, onChange, className = '', required, id, onEnter, labelClass, inputClass }: TextInputProps) => {
   return <div className={`flex items-center p-1 ${className}`}>
     <label htmlFor={id || label} className={`text-gray-800 flex-shrink-0 mr-2 ${labelClass}`}>

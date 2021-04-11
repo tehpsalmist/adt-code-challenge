@@ -1,3 +1,9 @@
+/*
+  Tailwind allows me to move quickly, which is why I chose it for this weekend excursion.
+  Technically it is a third party library, but I can only reinvent so many wheels,
+  and CSS is the last thing I wanted to do from scratch.
+*/
+
 @tailwind base;
 
 th, td {
