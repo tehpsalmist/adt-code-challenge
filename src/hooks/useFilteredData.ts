@@ -1,9 +1,9 @@
-import { ColumnName } from '../types'
+import { ColumnName, Restaurant } from '../types'
 
-export const useFilteredData = (data = [], column: ColumnName, value: string) => {
+export const useFilteredData = (data: Restaurant[] = [], column: ColumnName, value: string) => {
   if (!value) {
     return data ?? []
   }
 
-  return data.filter(datum => datum[column].includes(value))
+  return data.filter(datum => datum[column].toLowerCase().includes(value.toLowerCase()))
 }

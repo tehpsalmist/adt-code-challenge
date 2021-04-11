@@ -4,6 +4,7 @@ import { usePaginatedData } from '../hooks/usePaginatedData'
 import { ColumnName } from '../types'
 import { Paginator } from './Paginator'
 import { RestaurantTable } from './RestaurantTable'
+import { TextInput } from './TextInput'
 
 export const Main = ({ className = '', style = {}, data, error, loading }) => {
   const [column, setFilterColumn] = useState<ColumnName>('name')
@@ -14,9 +15,11 @@ export const Main = ({ className = '', style = {}, data, error, loading }) => {
   const [page, setPage] = useState(1)
   const { pageOfData, pages } = usePaginatedData({ data: filteredList, page })
 
-  return <main className={`${className}`} style={style}>
-    <input value={value} type='text' onChange={e => setFilterValue(e.target.value)} />
+  return <main className={`flex flex-col ${className}`} style={style}>
+    <div>
+      <TextInput label='Filter Value' value={value} type='text' onChange={val => setFilterValue(val)} />
+    </div>
     <RestaurantTable restaurants={pageOfData} />
-    <Paginator page={page} setPage={setPage} total={pages} />
+    <Paginator className='mt-4 mx-auto' page={page} setPage={setPage} total={pages} />
   </main>
 }

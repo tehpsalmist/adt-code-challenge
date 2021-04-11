@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { StyleHTMLAttributes } from 'react'
+import { Restaurant } from '../types'
+import { Pill } from './Pill'
 
-export const RestaurantTable = ({ className = '', style = {}, restaurants = [] }) => {
+interface RestaurantTableProps {
+  className?: string
+  style?: StyleHTMLAttributes<HTMLDivElement>
+  restaurants?: Restaurant[]
+}
+
+export const RestaurantTable = ({ className = '', style = {}, restaurants = [] }: RestaurantTableProps) => {
   return <div className={`${className}`} style={style}>
     <table className='w-full text-left'>
       <thead>
@@ -14,12 +22,16 @@ export const RestaurantTable = ({ className = '', style = {}, restaurants = [] }
       </thead>
       <tbody>
         {restaurants?.map(restaurant => {
-          return <tr>
-            <td>{restaurant.name}</td>
-            <td>{restaurant.city}</td>
-            <td>{restaurant.state}</td>
-            <td>{restaurant.telephone}</td>
-            <td>{restaurant.genre}</td>
+          return <tr key={restaurant.id} className='striped'>
+            <td className='p-2'>{restaurant.name}</td>
+            <td className='p-2'>{restaurant.city}</td>
+            <td className='p-2'>{restaurant.state}</td>
+            <td className='p-2'>
+              <a href={`tel:${restaurant.telephone}`}>{restaurant.telephone}</a>
+            </td>
+            <td className='p-2'>
+              {restaurant.genre.split(',').map(genre => <Pill value={genre} />)}
+            </td>
           </tr>
         })}
       </tbody>

@@ -13,10 +13,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.blue,
+        primary: colors.orange,
         secondary: {
-          ...colors.green,
-          100: '#dbfde4'
+          ...colors.emerald
         }
       },
       minHeight: theme => ({

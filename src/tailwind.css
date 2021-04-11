@@ -2,10 +2,26 @@
 
 @tailwind components;
 
+.text-input {
+  @apply flex-grow py-1 px-2 text-base leading-6 appearance-none border border-gray-300 shadow-none bg-white rounded-md;
+}
+
+.text-input:focus {
+  @apply outline-none ring border-blue-300;
+}
+
+.text-input:invalid:not([value=""]) {
+  @apply border-red-300 ring-red-200;
+}
+
 @tailwind utilities;
 
 @responsive {
   .flex-center {
     @apply flex justify-center items-center;
   }
+}
+
+.striped:nth-child(even) {	
+  @apply bg-gray-200;	
 }
