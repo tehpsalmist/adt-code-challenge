@@ -1,0 +1,1 @@
+export type ColumnName = 'name' | 'city' | 'state' | 'telephone' | 'genre'

@@ -2,10 +2,24 @@
 
 Spin it up locally:
 
-```sh
-git clone $url && cd adt-code-challenge
-npm i
-npm start
-```
+1. Clone and Install
 
-visit http://localhost:1234
+    ```sh
+    git clone $url && cd adt-code-challenge
+    npm i
+    ```
+
+2. Create Environment File
+
+    ```sh
+    touch .env
+    echo "API_KEY='put api key here'" >> .env
+    ```
+
+3. Start Server
+
+    ```sh
+    npm start
+    ```
+
+    Visit http://localhost:1234 to see it in action!
