@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useFilteredData } from '../hooks/useFilteredData'
 import { usePaginatedData } from '../hooks/usePaginatedData'
+import { GenrePicker } from './GenrePicker'
 import { Loading } from './Loading'
 import { Paginator } from './Paginator'
 import { RestaurantTable } from './RestaurantTable'
@@ -18,16 +19,21 @@ export const Main = ({ className = '', style = {}, data, error, loading }) => {
 
   const genreMatchedList = useFilteredData(stateMatchedList, ['genre'], selectedGenre)
 
-  const searchList = useFilteredData(stateMatchedList, searchColumns, search)
+  const searchList = useFilteredData(genreMatchedList, searchColumns, search)
 
   const [page, setPage] = useState(1)
   const { pageOfData, pages } = usePaginatedData({ data: searchList, page })
 
   return <main className={`flex flex-col ${className}`} style={style}>
+    <h1 className='text-2xl text-center my-2 text-primary-500'>Top Restaurants Nationwide</h1>
     <div className='flex p-2'>
       <StatePicker value={selectedState} onChange={state => {
         setPage(1)
         setSelectedState(state)
+      }} />
+      <GenrePicker value={selectedGenre} onChange={genre => {
+        setPage(1)
+        setSelectedGenre(genre)
       }} />
       <TextInput label='Search:' className='ml-auto max-w-sm' value={search} type='text' onChange={val => setSearch(val)} />
     </div>
