@@ -5,6 +5,7 @@ import { GenrePicker } from './GenrePicker'
 import { Loading } from './Loading'
 import { Paginator } from './Paginator'
 import { RestaurantTable } from './RestaurantTable'
+import { SearchBar } from './SearchBar'
 import { StatePicker } from './StatePicker'
 import { TextInput } from './TextInput'
 
@@ -35,7 +36,7 @@ export const Main = ({ className = '', style = {}, data, error, loading }) => {
         setPage(1)
         setSelectedGenre(genre)
       }} />
-      <TextInput label='Search:' className='ml-auto max-w-sm' value={search} type='text' onChange={val => setSearch(val)} />
+      <SearchBar className='ml-auto' currentSearch={search} onEnter={s => setSearch(s)} />
     </div>
     {loading && <Loading />}
     {pageOfData.length

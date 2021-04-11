@@ -14,8 +14,7 @@ export const RestaurantTable = ({ className = '', style = {}, restaurants = [] }
       <thead>
         <tr>
           <th>Name</th>
-          <th>City</th>
-          <th>State</th>
+          <th>Location</th>
           <th>Phone Number</th>
           <th>Genres</th>
         </tr>
@@ -24,10 +23,9 @@ export const RestaurantTable = ({ className = '', style = {}, restaurants = [] }
         {restaurants?.map(restaurant => {
           return <tr key={restaurant.id} className='striped'>
             <td>{restaurant.name}</td>
-            <td>{restaurant.city}</td>
-            <td>{restaurant.state}</td>
+            <td>{restaurant.city}, {restaurant.state}</td>
             <td>
-              <a className='whitespace-nowrap' href={`tel:${restaurant.telephone}`}>{restaurant.telephone}</a>
+              <a className='whitespace-nowrap text-blue-500' href={`tel:${restaurant.telephone}`}>{restaurant.telephone}</a>
             </td>
             <td>
               {restaurant.genre.split(',').map(genre => <Pill key={genre} value={genre} />)}
