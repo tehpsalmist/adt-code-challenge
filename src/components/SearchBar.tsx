@@ -19,7 +19,7 @@ export const SearchBar = ({ className = '', style = {}, currentSearch, onEnter }
   return <div className={`flex space-x-1 ${className}`} style={style}>
     <TextInput
       label='Search:'
-      className='ml-auto max-w-sm'
+      className='max-w-sm'
       inputClass={search === currentSearch ? 'text-gray-500' : ''}
       value={search}
       type='text'

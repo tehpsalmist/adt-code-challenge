@@ -26,7 +26,7 @@ export const Main = ({ className = '', style = {}, data, error, loading }) => {
 
   return <main className={`flex flex-col ${className}`} style={style}>
     <h1 className='text-2xl text-center my-2 text-primary-500'>Top Restaurants Nationwide</h1>
-    <div className='flex p-2'>
+    <div className='flex flex-col items-center md:flex-row p-2'>
       <StatePicker value={selectedState} onChange={state => {
         setPage(1)
         setSelectedState(state)
@@ -35,7 +35,7 @@ export const Main = ({ className = '', style = {}, data, error, loading }) => {
         setPage(1)
         setSelectedGenre(genre)
       }} />
-      <SearchBar className='ml-auto' currentSearch={search} onEnter={s => setSearch(s)} />
+      <SearchBar className='md:ml-auto' currentSearch={search} onEnter={s => setSearch(s)} />
     </div>
     {loading && <Loading />}
     {pageOfData.length
