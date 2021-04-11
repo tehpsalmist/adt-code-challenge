@@ -9,8 +9,8 @@ interface RestaurantTableProps {
 }
 
 export const RestaurantTable = ({ className = '', style = {}, restaurants = [] }: RestaurantTableProps) => {
-  return <div className={`${className}`} style={style}>
-    <table className='w-full text-left'>
+  return <div className={`overflow-x-scroll ${className}`} style={style}>
+    <table className='min-w-full text-left'>
       <thead>
         <tr>
           <th>Name</th>
@@ -23,13 +23,13 @@ export const RestaurantTable = ({ className = '', style = {}, restaurants = [] }
       <tbody>
         {restaurants?.map(restaurant => {
           return <tr key={restaurant.id} className='striped'>
-            <td className='p-2'>{restaurant.name}</td>
-            <td className='p-2'>{restaurant.city}</td>
-            <td className='p-2'>{restaurant.state}</td>
-            <td className='p-2'>
-              <a href={`tel:${restaurant.telephone}`}>{restaurant.telephone}</a>
+            <td className='whitespace-nowrap'>{restaurant.name}</td>
+            <td>{restaurant.city}</td>
+            <td>{restaurant.state}</td>
+            <td>
+              <a className='whitespace-nowrap' href={`tel:${restaurant.telephone}`}>{restaurant.telephone}</a>
             </td>
-            <td className='p-2'>
+            <td>
               {restaurant.genre.split(',').map(genre => <Pill key={genre} value={genre} />)}
             </td>
           </tr>

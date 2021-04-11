@@ -1,9 +1,13 @@
 @tailwind base;
 
+th, td {
+  @apply p-2;
+}
+
 @tailwind components;
 
 .text-input {
-  @apply flex-grow py-1 px-2 text-base leading-6 appearance-none border border-gray-300 shadow-none bg-white rounded-md;
+  @apply flex-grow py-1 px-2 text-base leading-6 border border-gray-300 shadow-none bg-white rounded-md;
 }
 
 .text-input:focus {
@@ -22,6 +26,6 @@
   }
 }
 
-.striped:nth-child(even) {	
+.striped:nth-child(odd) {	
   @apply bg-gray-200;	
 }
