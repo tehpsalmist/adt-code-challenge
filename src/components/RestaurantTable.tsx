@@ -23,7 +23,7 @@ export const RestaurantTable = ({ className = '', style = {}, restaurants = [] }
       <tbody>
         {restaurants?.map(restaurant => {
           return <tr key={restaurant.id} className='striped'>
-            <td className='whitespace-nowrap'>{restaurant.name}</td>
+            <td>{restaurant.name}</td>
             <td>{restaurant.city}</td>
             <td>{restaurant.state}</td>
             <td>

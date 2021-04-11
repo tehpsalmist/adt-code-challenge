@@ -12,11 +12,11 @@ const searchColumns = ['name', 'city', 'genre']
 export const Main = ({ className = '', style = {}, data, error, loading }) => {
   const [search, setSearch] = useState('')
   const [selectedState, setSelectedState] = useState('')
-  // const [selectedGenre, setSelectedGenre] = useState('')
+  const [selectedGenre, setSelectedGenre] = useState('')
 
   const stateMatchedList = useFilteredData(data, ['state'], selectedState)
 
-  // const genreMatchedList = useFilteredData(stateMatchedList, ['genre'], selectedGenre)
+  const genreMatchedList = useFilteredData(stateMatchedList, ['genre'], selectedGenre)
 
   const searchList = useFilteredData(stateMatchedList, searchColumns, search)
 
@@ -24,16 +24,20 @@ export const Main = ({ className = '', style = {}, data, error, loading }) => {
   const { pageOfData, pages } = usePaginatedData({ data: searchList, page })
 
   return <main className={`flex flex-col ${className}`} style={style}>
-    <div className='flex space-x-2'>
+    <div className='flex p-2'>
       <StatePicker value={selectedState} onChange={state => {
         setPage(1)
         setSelectedState(state)
       }} />
-      <TextInput label='Search:' className='max-w-sm' value={search} type='text' onChange={val => setSearch(val)} />
+      <TextInput label='Search:' className='ml-auto max-w-sm' value={search} type='text' onChange={val => setSearch(val)} />
     </div>
     {loading && <Loading />}
-    {pageOfData.length ? <RestaurantTable restaurants={pageOfData} /> : <div className='flex-center h-md'>No results found for this state.</div>}
-    
-    <Paginator className='mt-4 mx-auto' page={page} setPage={setPage} total={pages} />
+    {pageOfData.length
+      ? <>
+        <Paginator className='md:hidden mb-4 mx-auto' page={page} setPage={setPage} total={pages} />
+        <RestaurantTable restaurants={pageOfData} />
+        <Paginator className='mt-4 mx-auto' page={page} setPage={setPage} total={pages} />
+      </>
+      : <div className='flex-center h-md'>No results found for this state.</div>}
   </main>
 }
